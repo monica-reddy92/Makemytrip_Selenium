@@ -19,8 +19,9 @@ public class LoginPageTest extends TestBase
 	}
 	
 	@BeforeMethod
-	public void setUp(){
+	public void setUp() throws InterruptedException{
 		initialization();
+		//Thread.sleep(5000);
 		loginPage = new LoginPage();	
 	}
 	
@@ -28,13 +29,13 @@ public class LoginPageTest extends TestBase
 	public void loginPageTitleTest(){
 		String title = loginPage.validateLoginPageTitle();
 		System.out.println(title);
-		Assert.assertEquals(title, "#1 Free CRM for Any Business: Online Customer Relationship Software");
+		Assert.assertEquals(title, "MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights & Holiday");
 	}
 	
 	@Test(priority=2)
-	public void makeMytripLogoImageTest(){
-		boolean flag = loginPage.validateMakemyTripImage();
-		Assert.assertTrue(flag);
+	public void verifyLogoTest()
+	{
+		Assert.assertTrue(loginPage.validateMakemyTripImage());
 	}
 	
 	@Test(priority=3)

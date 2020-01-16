@@ -10,7 +10,9 @@
 <listAttribute key="org.testng.eclipse.GROUP_LIST"/>
 <listAttribute key="org.testng.eclipse.GROUP_LIST_CLASS"/>
 <stringAttribute key="org.testng.eclipse.LOG_LEVEL" value="2"/>
-<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST">
+<listEntry value="com.makemytrip.qa.testcases"/>
+</listAttribute>
 <stringAttribute key="org.testng.eclipse.PROTOCOL" value="json"/>
 <listAttribute key="org.testng.eclipse.SUITE_TEST_LIST">
 <listEntry value="D:\makemytripapplicationtest\Makemytripapp\src\main\resources\testng.xml"/>

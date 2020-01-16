@@ -1,0 +1,5 @@
+package com.makemytrip.qa.ExtentReportListener;
+
+public class ExtentReporterNG {
+
+}
