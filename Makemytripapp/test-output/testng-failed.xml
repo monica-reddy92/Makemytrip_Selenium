@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Makemytrip Application Test Automation Test Suite]">
-  <listeners>
-    <listener class-name="com.makemytrip.qa.ExtentReportListener.ExtentReporterNG"/>
-  </listeners>
-  <test name="Makemytrip App Test Cases(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.makemytrip.qa.testcases.FlightsPageTest">
+      <class name="com.makemytrip.qa.testcases.HotelsPageTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifyReturnStatusForOneWayTest"/>
-          <include name="tearDown"/>
+          <include name="searchHotelsTest" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- com.makemytrip.qa.testcases.FlightsPageTest -->
+      </class> <!-- com.makemytrip.qa.testcases.HotelsPageTest -->
     </classes>
-  </test> <!-- Makemytrip App Test Cases(failed) -->
-</suite> <!-- Failed suite [Makemytrip Application Test Automation Test Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

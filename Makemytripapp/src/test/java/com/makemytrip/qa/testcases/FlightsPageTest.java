@@ -53,6 +53,8 @@ public class FlightsPageTest extends TestBase {
 	flightsPage.oneWayradioBtn.click();
 	Assert.assertEquals(flightsPage.getReturnDateValue(),"Tap to add a return date for bigger discounts");
 	}
+	
+
 		
 	@AfterMethod
 	public void tearDown(){

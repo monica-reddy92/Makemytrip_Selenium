@@ -1,0 +1,13 @@
+package com.makemytrip.qa.testcases;
+
+import com.makemytrip.qa.base.TestBase;
+import com.makemytrip.qa.pages.LoginPage;
+
+public class HotelsPageTest extends TestBase
+{
+	LoginPage loginPage;
+	
+	public FlightsPageTest(){
+		super();
+	}
+}

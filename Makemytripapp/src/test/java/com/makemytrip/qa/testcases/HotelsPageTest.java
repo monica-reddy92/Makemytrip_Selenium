@@ -1,8 +1,51 @@
 package com.makemytrip.qa.testcases;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 import com.makemytrip.qa.base.TestBase;
+import com.makemytrip.qa.pages.FlightsPage;
+import com.makemytrip.qa.pages.HotelsPage;
+import com.makemytrip.qa.pages.LoginPage;
+import com.makemytrip.qa.util.TestUtil;
 
 public class HotelsPageTest extends TestBase
 {
-
+	LoginPage loginPage;
+	FlightsPage flightsPage;
+	WebDriverWait wait;
+	HotelsPage hotelsPage;
+	String sheetName = "Search_Hotels";
+	
+	public HotelsPageTest(){
+		super();
+	}
+	
+	@DataProvider()
+	public Object[][] getMakemyTripTestData() {
+		Object data[][] = TestUtil.getTestData(sheetName);
+		return data;
+	}
+	
+	@BeforeMethod
+	public void setUp() throws InterruptedException{
+		initialization();
+		loginPage = new LoginPage();
+		flightsPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		wait = new WebDriverWait(driver,50);
+		
+	}
+	
+	@Test(priority=1,dataProvider ="getMakemyTripTestData" )
+	public void searchHotelsTest(String city,String checkinDate,String checkoutDate)
+	{
+		wait.until(ExpectedConditions.textToBePresentInElement(flightsPage.welcomeText,"Hey Traveller"));
+		hotelsPage=flightsPage.clickHotelsPage();
+		hotelsPage.searchHotel(city,checkinDate,checkoutDate);
+	}
+	
 }

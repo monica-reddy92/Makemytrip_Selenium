@@ -37,6 +37,9 @@ public class LoginPage extends TestBase
 	@FindBy(xpath="//button[@data-cy=\"login\"]")
 	WebElement loginbtn;
 	
+	
+	
+	
 	public LoginPage()
 	{
 		PageFactory.initElements(driver, this);
@@ -64,6 +67,8 @@ public class LoginPage extends TestBase
 		loginbtn.click();
 		return new FlightsPage();
 }
+	
+	
 }
 
 

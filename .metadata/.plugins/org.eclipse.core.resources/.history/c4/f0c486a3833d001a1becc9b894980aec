@@ -1,0 +1,71 @@
+package com.makemytrip.qa.pages;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.makemytrip.qa.base.TestBase;
+
+public class FlightsPage extends TestBase {
+
+	@FindBy(xpath="//p[@data-cy='loggedInUser']")
+	public WebElement welcomeText;
+	
+	@FindBy(xpath="//p[@data-cy='returnDefaultText']")
+	WebElement returnDate;
+	
+	@FindBy(xpath="//li[@data-cy='oneWayTrip']")
+	public WebElement oneWayradioBtn;
+	
+	@FindBy(xpath="//span[contains(text(),\"From\")]")
+	public WebElement fromBtn;
+	
+	@FindBy(xpath="//span[contains(text(),\"To\")]")
+	public WebElement ToBtn;
+	
+	
+	
+	public FlightsPage()
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	//page actions
+		public String validateFlightsPageTitle()
+		{
+			return driver.getTitle();
+		}
+	
+		public String validateFlightsPageUserName()
+		{
+			return welcomeText.getText();
+		}
+	
+		public String getReturnDateValue()
+		{
+			return returnDate.getText();
+		}
+		
+		public void searchForFlights(String fromCity,String toCity) throws InterruptedException
+		{
+		
+			Actions action = new Actions(driver);
+
+			action.moveToElement(fromBtn).click().build().perform();
+
+			Thread.sleep(3000);
+
+			action.sendKeys(fromCity).build().perform();
+			Thread.sleep(3000);
+
+			action.moveToElement(ToBtn).click().build().perform();
+
+			Thread.sleep(3000);
+
+	//		action.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+
+	//		action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
+		}
+}
