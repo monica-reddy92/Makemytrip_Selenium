@@ -11,6 +11,7 @@
 		<classes>
 			<class name="com.makemytrip.qa.testcases.LoginPageTest"></class>
 			<class name="com.makemytrip.qa.testcases.FlightsPageTest"></class>
+			<class name="com.makemytrip.qa.testcases.HotelsPageTest"></class>
 		</classes>
 	</test>
 </suite>

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Properties"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
@@ -11,19 +8,28 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
-<fullyQualifiedTypeName name="org.openqa.selenium.JavascriptExecutor"/>
 <fullyQualifiedTypeName name="com.makemytrip.qa.base.TestBase"/>
-<fullyQualifiedTypeName name="com.makemytrip.qa.util.TestUtil"/>
 <fullyQualifiedTypeName name="org.testng.annotations.BeforeMethod"/>
 <fullyQualifiedTypeName name="com.makemytrip.qa.pages.LoginPage"/>
 <fullyQualifiedTypeName name="com.makemytrip.qa.pages.FlightsPage"/>
 <fullyQualifiedTypeName name="org.testng.annotations.AfterMethod"/>
 <fullyQualifiedTypeName name="org.testng.Assert"/>
-<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="com.makemytrip.qa.pages.HotelsPage"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.JavascriptExecutor"/>
+<fullyQualifiedTypeName name="org.testng.annotations.DataProvider"/>
+<fullyQualifiedTypeName name="com.makemytrip.qa.util.TestUtil"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.WorkbookFactory"/>
+<fullyQualifiedTypeName name="org.apache.poi.openxml4j.exceptions.InvalidFormatException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Workbook"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
 </qualifiedTypeNameHistroy>

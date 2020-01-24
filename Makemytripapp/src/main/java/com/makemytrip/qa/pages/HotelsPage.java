@@ -2,6 +2,8 @@ package com.makemytrip.qa.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,17 +23,31 @@ public class HotelsPage extends TestBase {
 	@FindBy(xpath="//button[@id='hsw_search_button']")
 	WebElement searchBtn;
 	
+	@FindBy(xpath="//div[@class='DayPicker-Caption']")
+	WebElement dayPicker;
+	
+	@FindBy(xpath="//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")
+	WebElement navigateBtn;
+	
+	@FindBy(xpath="//input[@id='checkin']")
+	WebElement checkInBtn;
+	
+	@FindBy(xpath="//span[@data-cy='selectCheckOutDate']")
+	WebElement checkOutBtn;
+
+	
 	public HotelsPage()
 	{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void searchHotel(String fromCity,String checkin,String checkout)
+	public void searchHotel(String fromCity,String checkin,String checkout) throws InterruptedException
 	{
-		String checkinmonth=checkin.substring(3);
-		String checkoutmonth=checkout.substring(3);
-		String checkindate=checkin.substring(0,2);
-		String checkoutdate=checkout.substring(0,2);
+		
+		String xpath1 = "(//*[@class='DayPicker-Month'])[1]/div[3]/div[";
+		String xpath2 = "]/div[";
+		String xpath3 = "]";
+		boolean flag = false;
 		cityList.click();
 		for (WebElement suggest_1 : hotelSuggestions) {
 			String str = suggest_1.getText();
@@ -44,9 +60,36 @@ public class HotelsPage extends TestBase {
 				break;
 			}
 		}
+		checkInBtn.click();
+		Thread.sleep(5000);
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= 7; j++) {
+				String actual_xpath = xpath1 + i + xpath2 + j + xpath3;
+
+				String str = driver.findElement(By.xpath(actual_xpath)).getText();
+				if (str.contains(checkin))
+				{
+                 driver.findElement(By.xpath(actual_xpath)).click();       
+                 continue;
+				}	
+				if (str.contains(checkout))
+				{
+                driver.findElement(By.xpath(actual_xpath)).click();
+                flag=true;
+                break;
+                 
+				}
+	}
+		}
 		
 		searchBtn.click();
-		
-	}
+}
 	
+	public void bookHotel()
+	{
+		Alert alt=driver.switchTo().alert();
+		String alertText=alt.getText();
+		System.out.println(alertText);
+		alt.dismiss();
+	}
 }

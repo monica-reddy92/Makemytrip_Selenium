@@ -41,11 +41,14 @@ public class HotelsPageTest extends TestBase
 	}
 	
 	@Test(priority=1,dataProvider ="getMakemyTripTestData" )
-	public void searchHotelsTest(String city,String checkinDate,String checkoutDate)
+	public void searchHotelsTest(String city,String checkinDate,String checkoutDate) throws InterruptedException
 	{
 		wait.until(ExpectedConditions.textToBePresentInElement(flightsPage.welcomeText,"Hey Traveller"));
 		hotelsPage=flightsPage.clickHotelsPage();
 		hotelsPage.searchHotel(city,checkinDate,checkoutDate);
+		Thread.sleep(5000);
+		hotelsPage.bookHotel();
 	}
+	
 	
 }
