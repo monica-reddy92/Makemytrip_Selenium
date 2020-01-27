@@ -1,6 +1,8 @@
 package com.makemytrip.qa.pages;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -10,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.makemytrip.qa.base.TestBase;
+import com.makemytrip.qa.util.TestUtil;
 
 public class HotelsPage extends TestBase {
 
@@ -34,20 +37,44 @@ public class HotelsPage extends TestBase {
 	
 	@FindBy(xpath="//span[@data-cy='selectCheckOutDate']")
 	WebElement checkOutBtn;
-
+	
+	@FindBy(xpath="//a[@class='primaryBtn']")
+	WebElement searchHotels;
+	
+	@FindBy(xpath="//div[@id='hotelListingContainer']")
+	List<WebElement> selectHotel;
+	
+	@FindBy(xpath="//body[@class='bodyFixed overlayWholeBlack']")
+	WebElement selectHotelPage;
+	
+	@FindBy(xpath="//a[text()='BOOK THIS NOW']")
+	WebElement bookTicket;
+	
+	@FindBy(xpath="//a[@class='primaryBtn btnPayNow']")
+	WebElement payNow;
+	
+	@FindBy(id="fName")
+	WebElement firstName;
+	
+	@FindBy(id="lName")
+	WebElement lastName;
+	
+	@FindBy(xpath="//p[text()='Traveller Information']")
+	WebElement userDetails;
+	
+	
 	
 	public HotelsPage()
 	{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void searchHotel(String fromCity,String checkin,String checkout) throws InterruptedException
+	public void searchHotel(String fromCity,String checkin,String checkout,String fstName,String lstName) throws InterruptedException
 	{
 		
 		String xpath1 = "(//*[@class='DayPicker-Month'])[1]/div[3]/div[";
 		String xpath2 = "]/div[";
 		String xpath3 = "]";
-		boolean flag = false;
 		cityList.click();
 		for (WebElement suggest_1 : hotelSuggestions) {
 			String str = suggest_1.getText();
@@ -75,7 +102,6 @@ public class HotelsPage extends TestBase {
 				if (str.contains(checkout))
 				{
                 driver.findElement(By.xpath(actual_xpath)).click();
-                flag=true;
                 break;
                  
 				}
@@ -83,13 +109,30 @@ public class HotelsPage extends TestBase {
 		}
 		
 		searchBtn.click();
+		Thread.sleep(5000);
+		searchHotels.click();
+		Thread.sleep(10000);
+		selectHotelPage.click();
+		Thread.sleep(5000);
+		selectHotel.get(0).click();
+		Thread.sleep(5000);
+		Set<String> s1 = driver.getWindowHandles();
+		ArrayList<String> obj = new ArrayList<String>(s1);
+		driver.switchTo().window(obj.get(1));
+		Thread.sleep(5000);
+		bookTicket.click();
+		Thread.sleep(10000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", userDetails);
+		firstName.sendKeys(fstName);
+		lastName.sendKeys(lstName);
+		Thread.sleep(5000);
+		js.executeScript("window.scrollTo(0, 0)");
+		Thread.sleep(5000);
+		payNow.click();
+		Thread.sleep(5000);
+		TestUtil.takeScreenshotAtEndOfTest(imgBookingSummary);
 }
 	
-	public void bookHotel()
-	{
-		Alert alt=driver.switchTo().alert();
-		String alertText=alt.getText();
-		System.out.println(alertText);
-		alt.dismiss();
-	}
+
 }

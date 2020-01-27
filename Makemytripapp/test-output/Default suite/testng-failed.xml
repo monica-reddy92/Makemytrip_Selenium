@@ -6,7 +6,7 @@
       <class name="com.makemytrip.qa.testcases.HotelsPageTest">
         <methods>
           <include name="setUp"/>
-          <include name="searchHotelsTest" invocation-numbers="0"/>
+          <include name="searchHotelsTest"/>
         </methods>
       </class> <!-- com.makemytrip.qa.testcases.HotelsPageTest -->
     </classes>
